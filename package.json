@@ -1,5 +1,5 @@
 {
-  "name": "rando",
+  "name": "Geo",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -12,7 +12,7 @@
     "pg": "^7.9.0"
   },
   "scripts": {
-    "start": "yarn run migrate && node index.js",
+    "start": "node index.js",
     "migrate": "knex migrate:latest",
     "heroku-postbuild": "cd client && yarn && yarn run build"
   }
