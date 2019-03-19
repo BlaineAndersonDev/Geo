@@ -89,9 +89,30 @@ class Jokes extends Component {
         </div>
       )
     } else {
-      content = (  
+      content = (
         <div>
-          No Jokes Here
+          <div className="allJokeContainer">
+            <h3 className="jokeContainerTitle">No Jokes Here</h3>
+          </div>
+          
+          <div style={{backgroundColor: "#ccffe6"}}>
+            <h3>Delete a Joke by PublicId</h3>
+            <DeleteJokeImage
+              handleImageDelete={this.handleImageDelete}
+            />
+          </div>
+
+          <div style={{backgroundColor: "#ffccff"}}>
+            <h3>Create a Joke (Complete)</h3>
+            <CreateJoke
+              refreshJokes={this.refreshJokes}
+            />
+          </div>
+
+          <div style={{backgroundColor: "#ff9999"}}>
+            <h1>Hello, world!</h1>
+            <Image cloudName="BrawnImages" publicId="samples/animals/kitten-playing" width="300" crop="scale"/>
+          </div>
         </div>
       )
     }
