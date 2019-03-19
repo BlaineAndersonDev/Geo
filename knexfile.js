@@ -27,6 +27,7 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
+      host : process.env.REACT_APP_DATABASE_URL,
       user : process.env.REACT_APP_SERVER_KNEX_PROD_DB_USERNAME,
       password : process.env.REACT_APP_SERVER_KNEX_PROD_DB_PASSWORD,
       database : process.env.REACT_APP_SERVER_KNEX_PROD_DB_NAME,
