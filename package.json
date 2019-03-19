@@ -13,7 +13,6 @@
   },
   "scripts": {
     "start": "node index.js",
-    "migrate": "knex migrate:latest",
     "heroku-postbuild": "cd client && yarn && yarn run build"
   }
 }
