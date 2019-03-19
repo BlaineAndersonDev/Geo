@@ -52,7 +52,7 @@ class Jokes extends Component {
           <img id="spinner" src={logo} alt='Spinner' />
         </div>
       )
-    } else {
+    } else if (this.state.jokes) {
       content = (
         <div>
           <div className="allJokeContainer">
@@ -86,6 +86,12 @@ class Jokes extends Component {
             <h1>Hello, world!</h1>
             <Image cloudName="BrawnImages" publicId="samples/animals/kitten-playing" width="300" crop="scale"/>
           </div>
+        </div>
+      )
+    } else {
+      content = (  
+        <div>
+          No Jokes Here
         </div>
       )
     }
