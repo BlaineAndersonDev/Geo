@@ -1,11 +1,21 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
 const generatePassword = require('password-generator');
 
+// Allows the API to take requests on the given `port`.
+const port = process.env.PORT || 3001;
+
+// Create the app using express.
 const app = express();
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+// Allows express to Parse `request.body`.
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+app.listen(port), () => {
+  console.log(`Listening on ${port}`)
+};
 
 // Put all API endpoints under '/api'
 app.get('/api/passwords', (req, res) => {
@@ -28,7 +38,5 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
-const port = process.env.PORT || 5000;
-app.listen(port);
-
-console.log(`Password generator listening on ${port}`);
+// Exports the `Express App` to be used elsewhere in the project.
+module.exports = app;
