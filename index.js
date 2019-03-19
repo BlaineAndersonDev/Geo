@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const knex = require('./knexconfig.js');
+const dotenv = require('dotenv');
 const generatePassword = require('password-generator');
 
 // Allows the API to take requests on the given `port`.
@@ -16,6 +18,9 @@ app.use(bodyParser.json());
 app.listen(port), () => {
   console.log(`Listening on ${port}`)
 };
+
+// 'Import' & 'Mount' the router into the app.
+app.use('/api', require('./router.js'));
 
 // Put all API endpoints under '/api'
 app.get('/api/passwords', (req, res) => {
