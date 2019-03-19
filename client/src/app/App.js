@@ -1,62 +1,29 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import Home from './pages/Home.js';
+import Nav from './pages/Nav.js';
+import Footer from './pages/Footer.js';
+import PasswordGenerator from './pages/PasswordGenerator.js';
+import JokesContainer from './pages/jokes/JokesContainer.js';
 
 class App extends Component {
-  // Initialize state
-  state = { passwords: [] }
-
-  // Fetch passwords after first mount
-  componentDidMount() {
-    this.getPasswords();
-  }
-
-  getPasswords = () => {
-    // Get the passwords and store them in state
-    fetch('/api/passwords')
-      .then(res => res.json())
-      .then(passwords => this.setState({ passwords }));
-  }
-
   render() {
-    const { passwords } = this.state;
-
-    return (
-      <div className="App">
-        {/* Render the passwords if we have them */}
-        {passwords.length ? (
-          <div>
-            <h1>5 Passwords.</h1>
-            <ul className="passwords">
-              {/*
-                Generally it's bad to use "index" as a key.
-                It's ok for this example because there will always
-                be the same number of passwords, and they never
-                change positions in the array.
-              */}
-              {passwords.map((password, index) =>
-                <li key={index}>
-                  {password}
-                </li>
-              )}
-            </ul>
-            <button
-              className="more"
-              onClick={this.getPasswords}>
-              Get More
-            </button>
-          </div>
-        ) : (
-          // Render a helpful message otherwise
-          <div>
-            <h1>No passwords :(</h1>
-            <button
-              className="more"
-              onClick={this.getPasswords}>
-              Try Again?
-            </button>
-          </div>
-        )}
+    const App = () => (
+      <div id="appContainer">
+        <div id="appNavigation"><Nav /></div>
+        <Switch>
+          <Route exact path='/' component={Home}/>
+          <Route path='/jokes' component={JokesContainer}/>
+          <Route path='/passwords' component={PasswordGenerator}/>
+        </Switch>
+        <div id="appFooter"><Footer /></div>
       </div>
+    )
+    return (
+      <Switch>
+        <App style={{background: "url(/images/background1.jpg)"}}/>
+      </Switch>
     );
   }
 }
