@@ -3,7 +3,7 @@ const pg = require('pg')
 if (process.env.NODE_ENV === "production") {
 
   const config = {
-    user: process.env.DATABASE_URL,
+    user: process.env.REACT_APP_DATABASE_URL,
     ssl: true
   }
 
@@ -11,11 +11,11 @@ if (process.env.NODE_ENV === "production") {
 
 } else {
 
-  const dbPassword = process.env.SERVER_KNEX_DEV_DB_PASSWORD;
+  const dbPassword = process.env.REACT_APP_SERVER_KNEX_DEV_DB_PASSWORD;
 
   const config = {
-    user: process.env.SERVER_KNEX_DEV_DB_USERNAME,
-    database: process.env.SERVER_KNEX_DEV_DB_NAME,
+    user: process.env.REACT_APP_SERVER_KNEX_DEV_DB_USERNAME,
+    database: process.env.REACT_APP_SERVER_KNEX_DEV_DB_NAME,
     max: 10, // max number of clients in the pool
     idleTimeoutMillis: 30000
   }

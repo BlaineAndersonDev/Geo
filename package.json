@@ -12,7 +12,7 @@
     "pg": "^7.9.0"
   },
   "scripts": {
-    "start": "knex migrate:latest && node index.js",
-    "heroku-postbuild": "cd client && yarn && yarn run build"
+    "start": "node index.js",
+    "heroku-postbuild": "knex migrate:latest && cd client && yarn && yarn run build"
   }
 }

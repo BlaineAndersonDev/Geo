@@ -11,9 +11,9 @@ module.exports = {
     client: 'pg',
     connection: {
       host : '127.0.0.1',
-      user : process.env.SERVER_KNEX_DEV_DB_USERNAME,
-      password : process.env.SERVER_KNEX_DEV_DB_PASSWORD,
-      database : process.env.SERVER_KNEX_DEV_DB_NAME,
+      user : process.env.REACT_APP_SERVER_KNEX_DEV_DB_USERNAME,
+      password : process.env.REACT_APP_SERVER_KNEX_DEV_DB_PASSWORD,
+      database : process.env.REACT_APP_SERVER_KNEX_DEV_DB_NAME,
       charset: 'utf8'
     },
     migrations: {
@@ -27,9 +27,9 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-      user : process.env.SERVER_KNEX_PROD_DB_USERNAME,
-      password : process.env.SERVER_KNEX_PROD_DB_PASSWORD,
-      database : process.env.SERVER_KNEX_PROD_DB_NAME,
+      user : process.env.REACT_APP_SERVER_KNEX_PROD_DB_USERNAME,
+      password : process.env.REACT_APP_SERVER_KNEX_PROD_DB_PASSWORD,
+      database : process.env.REACT_APP_SERVER_KNEX_PROD_DB_NAME,
     },
     pool: {
       min: 2,
